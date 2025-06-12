@@ -23,6 +23,6 @@ jobs:
       run: chmod +x gradlew 
 
     - name: Build with Gradle Wrapper
-      run: ./gradlew build --no-daemon
+      run: ./gradlew build --no-daemon clean test
 
 

@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'maven-publish'  // Добавьте этот плагин
 }
 
 group = 'org.example'
@@ -16,4 +17,25 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'com.example'
+            artifactId = 'car-rental'
+            version = '1.0.0'
+
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/danah-frontend/Car-Rental-System"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
 }

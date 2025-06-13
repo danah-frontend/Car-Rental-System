@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'maven-publish'  // Добавьте этот плагин
+    id 'maven-publish'  // Добавьте этот плагин да
 }
 
 group = 'org.example'
